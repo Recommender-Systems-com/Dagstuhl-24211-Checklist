@@ -1,0 +1,157 @@
+% This file contains the checklist as presented in:
+%
+% Joeran Beel, Dietmar Jannach, Alan Said, Guy Shani, Tobias Vente, Lukas Wegmeth. 2024. Best-Practices for Offline Evaluations of Recommender Systems. In Report from Dagstuhl Seminar 24211 – Evaluation Perspectives of Recommender Systems: Driving Research and Education. Editors: Christine Bauer, Alan Said, Eva Zangerle.
+%
+% License CC-BY 4.0
+%
+\paragraph{Author and Reviewer Checklist: Reproducibility}
+We organize the proposed questions on reproducibility (and their corresponding explanations) in the following groups.
+\begin{enumerate}
+\item Code-related Aspects: Is the code of the full experimental pipeline publicly available? \\ 
+\emph{Sharing all artifacts needed or used to obtain the numerical results reported in a paper is essential for reproducibility. Appropriate documentation must also be provided so other researchers can re-execute the experiments. If possible, an execution-ready environment, e.g., in terms of a Docker container, should be made available.}
+\begin{enumerate}[label*=\arabic*.]
+    \item Code of proposed algorithm/framework/method/model
+    \item Code of all baselines
+    \item Code for preprocessing and postprocessing
+    \item Code for hyperparameter tuning
+    \item Code for execution (training and testing)
+    \item Code for statistical analysis
+    \item Documentation and installation/execution instructions
+\end{enumerate}
+\item Data-related Aspects: Is all relevant data publicly available? \\ 
+\emph{Reproducibility is only possible if the data used as input to the models and the results are publicly available. It may be insufficient to provide pointers only to previously published datasets, e.g., because preprocessing steps have been applied or publicly shared datasets are sometimes updated.}
+    \begin{enumerate}[label*=\arabic*.]
+        \item Original datasets
+        \item Preprocessed datasets
+        \item Train/validation/test splits
+        \item Results (outcomes of measurements)
+        \item Trained models
+    \end{enumerate}
+\item Configuration Aspects: Are all relevant configuration parameters reported? \\ 
+\emph{Besides code and data, the specifics of the execution of the experiment must be documented. This concerns how the models were tuned, the execution environment, and its configuration.}
+    \begin{enumerate}[label*=\arabic*.]
+        \item Hyperparameter search strategy, search space and search time for all models
+        \item Optimal hyperparameters per dataset and model
+        \item Train-test splitting configurations
+        \item Random seeds
+        \item Required external libraries and their versions
+        \item Used hardware (configuration)
+    \end{enumerate}
+\item Experiment specific aspects and other questions \\ 
+\emph{Depending on the specifics of the experiment, information about various other aspects should be provided. These questions should help better to gauge the level of reproducibility of the experiment. Further, these questions may serve as a place for researchers to justify certain technical choices. }
+    \begin{enumerate}[label*=\arabic*.]
+        \item Has an existing evaluation framework been used? If not, why not?
+        \item Is ``one-click'' reproducibility supported?
+        \item Are any instructions provided to reproduce (at least parts of) the experiment with limited hardware resources?
+        \item Is an expected runtime to reproduce the results provided?
+    \end{enumerate}
+\end{enumerate}
+
+\paragraph{Author and Reviewer Checklist: Methodology}
+
+For a mature research community, embracing the evaluation procedure used in previous papers can be considered good practice. However, we must acknowledge that several unjustified protocols, e.g., leave-one-out, have taken root in the recommendation system community. Hence, justifying a research protocol only by saying it was used in previous papers is perhaps unreasonable.
+
+\begin{enumerate}
+    \item Research Questions and Hypothesis: 
+    Are the research questions and hypotheses expressed clearly and matching the method and the results? \\
+    \emph{The research question should guide the development of the evaluation process. Therefore, it should be clearly stated, and the authors' choices throughout the method should correspond with the research question and conclusions.}
+    \begin{enumerate} [label*=\arabic*.]
+        \item The research question is clearly stated.
+        \item The hypothesis is derived from the research question.
+        \item The experimental design is suited to address the stated research questions.
+        \item The conclusion is based on the research question and the experimental design.
+    \end{enumerate}
+    
+    \item Baselines: 
+    Are baselines selected and tuned to ensure appropriate comparisons? \\
+    \emph{While one should always compare to the latest best method for the particular task, it is also important to compare against earlier and probably simpler baselines to show the advantage of using the new, more complicated method.}
+    \begin{enumerate} [label*=\arabic*.]
+        \item The chosen baselines are appropriate to the hypothesis and research question.
+        \item One of the baselines is successful, e.g., state-of-the-art, for the given task. 
+        \item At least one simple baseline, e.g., $k$NN, popularity, or random, is included.
+        \item The baselines are tuned. One must invest sufficient effort in properly training the baselines. 
+        \item There needs to be clarity about whether the baselines were rerun or whether the results were taken from a previous paper.
+    \end{enumerate}
+
+
+    \item Evaluation Metrics: Is the chosen evaluation metric appropriate to answer the research question? \\
+    \emph{Choosing the appropriate evaluation metric for the task is critical. Reporting a large number of unrelated metrics is not good practice.}
+    \begin{enumerate}[label*=\arabic*.]
+        \item The selected metrics are derived from the hypothesis, e.g., RMSE for rating prediction or precision$@N$ for top-$N$ recommendation. 
+        \item The reported metrics are not redundant, e.g., RMSE and MAE or DCG and NDCG.
+        \item Tradeoffs between the metrics are explained and evaluated.
+    \end{enumerate}
+
+    \item Data collection:
+    Is the data collection process reasonable and well explained?\\ 
+    \emph{This is appropriate when a new dataset is presented. This dataset may be collected from an already running system or using a particular user study.}
+    \begin{enumerate} [label*=\arabic*.]
+       \item The data collection process is clear.
+        \item The study participants' recruitment, introduction, and participation incentives are explained.
+        \item Biases that exist in the data or arise from the data collection process are explained.
+        \item The used datasets are publicly available.
+    \end{enumerate}
+
+    \item Datasets: Are the chosen datasets appropriate for the task? \\
+    % Version of DATA
+    \emph{In offline evaluation, choosing appropriate datasets is highly important. Using a diverse set of datasets supports claims for generalization. In cases where a particular domain is targeted, the datasets must be focused on the task.}
+    \begin{enumerate} [label*=\arabic*.]
+        \item The chosen datasets are appropriate to the task at hand.
+        \item It should be clear whether the datasets were chosen to demonstrate generalization.
+        \item In the generalization case, it is desirable to experiment with a sufficient number of datasets. %at least three datasets.
+        \item If showing the general applicability of a model is the goal, a diverse set of datasets is used.
+        \item The origins of public datasets are specified.
+    \end{enumerate}
+
+    \item Data preprocessing: Is the data preprocessing well justified and explained? \\
+    % Version of DATA
+    \emph{It is often the case that researchers preprocess, prune, and filter the original dataset before training and testing. In general, preprocessing should be discouraged, especially the dataset's filtering and pruning. Such preprocessing should be kept to a minimum and should be well explained.}
+    \begin{enumerate} [label*=\arabic*.]
+        \item If users or items were pruned from the dataset, the pruning is well justified.
+        \item When pruning is done because the evaluated method works better on a subset of the data, this is made clear.
+        \item: This process is clearly explained and justified if the data was converted, e.g., from numeric ratings to binary like/dislike.
+    \end{enumerate}
+
+
+    \item Data-splitting: Does the train-test split fit the structure of the dataset and the task?
+    \emph{Most machine learning methods require a training phase. It is, hence, standard practice to split the data into training and test sets, where the test set is used only once to evaluate the algorithm once the training phase is done. The train-test split is designed to simulate the behavior at run time, when the system is aware of all information to date and must make future recommendations. Hence, the split procedure should correspond to the task at hand. }
+ 
+    \begin{enumerate} [label*=\arabic*.]
+        \item Typically, user-item interactions are split on time, where the training data contains the earlier interactions, and the test data contains the newer ones. When other types of splits are used, this is justified.
+        \item All algorithms are run on the same train-test split.
+        \item Cross-validation is applied when possible.
+    \end{enumerate}
+    
+    \item Hyperparameter Optimization (HPO): 
+    Is the hyperparameter optimization procedure justified and appropriate for the task? \\
+    \emph{For many machine learning methods, it is well known that HPO is a critical factor for performance. ML algorithms may underperform significantly when their parameters are not tuned to the dataset. Using an organized HPO process for all evaluated algorithms is highly important.}
+    \begin{enumerate} [label*=\arabic*.]
+        \item The optimization strategy is clearly stated.
+        \item The hyperparameter configuration space (parameter range) is sufficiently large and clearly defined.
+        \item The optimization time or number of tested configurations is clearly stated.
+        \item It is stated in case some algorithms are optimized differently.
+    \end{enumerate}
+    
+    \item Experiment execution: 
+    Was the experiment executed such that the comparison results are fair and statistically sound? \\
+    \emph{When running the experiments, all algorithms should receive equal treatment. Statistical significance should be computed to test the likelihood that the observed differences between the algorithms are real.}
+    \begin{enumerate} [label*=\arabic*.]
+        \item The boundaries between train and test data are respected (i.e., test data not used for checking convergence).
+        \item There is equal treatment of all compared algorithms (with respect, e.g., to HPO, runtime, hardware).
+        \item The statistical significance testing method is appropriate for the task.
+        \item The $p$-values are properly computed and reported.
+        \item Confidence intervals are provided whenever possible.
+        \item The hardware used in the experiment (e.g., memory, processor speed, GPU) is properly described.
+    \end{enumerate}
+     
+    \item Sensitivity analysis: 
+    Did the authors conduct and report a sensitivity analysis concerning the method parameters and the dataset properties? 
+    \\ \emph{Many algorithms have some parameters that must be tuned. It is important to analyze how different values for these parameters influence the performance. In many cases, an algorithm may also be sensitive to the dataset's properties (e.g., sparsity).}
+    \begin{enumerate} [label*=\arabic*.]
+        \item The method is executed with different parameter values.
+        \item The values of all parameters are fixed except for the tested one.
+        \item The effect of the parameters on the method is reported and discussed.
+        \item If there are trade-offs between the parameters, they are made clear.
+        \item Sensitivity to dataset parameters is done similarly to the method parameters.
+    \end{enumerate}
+\end{enumerate}

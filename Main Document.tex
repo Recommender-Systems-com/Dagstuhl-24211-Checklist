@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{xcolor} % reproducibility checklist (added by Joeran Beel)
+\usepackage{xspace} % reproducibility checklist (added by Joeran Beel)
+\usepackage{microtype}%if unwanted, comment out or use option "draft"
+\usepackage{todonotes}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{csquotes}
+\usepackage{hyperref}
+
+
+\title{Submission and Review Checklist for Authors and Reviewers of the \textit{ABC} Conference / Journal \\
+(Dagstuhl Seminar 24211 Template, v1.0)}
+
+\author{Author}
+
+\date{Date}
+
+\begin{document}
+
+% BEGIN Formatting Checklist Yes, No, n/a, TODO 
+\definecolor{answerYesColor}{RGB}{31,120,180}
+\definecolor{answerNoColor}{RGB}{227,26,28}
+\definecolor{answerNAColor}{RGB}{32, 32, 32}
+\definecolor{answerTODOColor}{RGB}{255,127,0}
+
+\newcommand{\answerYes}[1]{{\textcolor{answerYesColor}{[Yes]}\xspace#1}}
+\newcommand{\answerNo}[1]{{\textcolor{answerNoColor}{[No]}\xspace#1}}
+\newcommand{\answerNA}[1]{{\textcolor{answerNAColor}{[N/A]}\xspace#1}}
+\newcommand{\answerTODO}{\textcolor{answerTODOColor}{\textbf{[TODO]}}}
+
+% END Formatting Checklist Yes, No, n/a, TODO 
+
+\maketitle
+
+\noindent This document serves as a template for conference chairs and journal editors. They may use this template to populate a submission checklist to be filled and submitted by authors along with their manuscript and/or reviewers along with their review or simply as guidance. This template is published under the CC-BY~4 license\footnote{https://creativecommons.org/licenses/by/4.0/}. Visit 
+ \href{https://code.isg.beel.org/Dagstuhl-24211-Checklist}{https://code.isg.beel.org/Dagstuhl-24211-Checklist} for the most recent version of this template. Inspired by the AutoML 2024 checklist\footnote{https://github.com/automl-conf/LatexTemplate/blob/main/instructions.tex}, our template allows for the LaTeX commands \answerTODO \answerYes{} \answerNo{} \answerNA{}.
+
+If you use this template or parts thereof, please give appropriate credit to or cite
+
+\begin{displayquote}
+\textit{Joeran Beel, Dietmar Jannach, Alan Said, Guy Shani, Tobias Vente, Lukas Wegmeth. 2024. }Best-Practices for Offline Evaluations of Recommender Systems\textit{. In Report from Dagstuhl Seminar 24211 -- Evaluation Perspectives of Recommender Systems: Driving Research and Education. Editors: Christine Bauer, Alan Said, Eva Zangerle.}
+\end{displayquote}
+Version History:
+\begin{itemize}
+    \item Version 1.0 (Mai 2024)
+\end{itemize}
+
+\input{best-practices-checklist-inc}
+
+
+
+
+
+
+
+
+
+\end{document}
