@@ -1,4 +1,4 @@
-This GitHub repository contains a template for a submission checklist for conference chairs and journal editors. They may use this template to populate a submission checklist to be filled and submitted by authors along with their manuscript and/or reviewers along with their review or simply as guidance. This template is published under the CC-BY 4 license. You find the latest version of this template always at https://code.isg.beel.org/Dagstuhl-24211-Checklist.
+This GitHub repository contains a template for a submission checklist for conference chairs and journal editors. They may use this template to populate a submission checklist to be filled and submitted by authors along with their manuscript and/or reviewers along with their review or simply as guidance. This template is published under the CC-BY 4 license. You find the latest version of this template always at https://code.recommender-systems.com/Dagstuhl-24211-Checklist.
 
 The template is based on the work of:
 
